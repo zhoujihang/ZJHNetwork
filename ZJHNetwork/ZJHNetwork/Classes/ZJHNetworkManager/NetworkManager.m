@@ -57,12 +57,10 @@ static const char kBaseRequestErrorKey;
 }
 - (void)addRequest:(BaseRequest *)request{
     __weak typeof(self) weakSelf = self;
-    [[HttpConnection connection] connectWithRequest:request completionBlock:^(HttpConnection *connection, id responseJsonObject, NSError *error) {
-        if (responseJsonObject) {
-            [weakSelf processConnection:connection withResponseJsonObject:responseJsonObject];
-        }else{
-            [weakSelf processConnection:connection withError:error];
-        }
+    [[HttpConnection connection] connectWithRequest:request success:^(HttpConnection *connection, id responseJsonObject) {
+        [weakSelf processConnection:connection withResponseJsonObject:responseJsonObject];
+    } failture:^(HttpConnection *connection, NSError *error) {
+        [weakSelf processConnection:connection withError:error];
     }];
 }
 #pragma mark - 处理网络返回数据
@@ -135,13 +133,11 @@ static const char kBaseRequestErrorKey;
     
     NSDictionary *userInfo = customError.userInfo;
     RequestErrorModel *errorModel = userInfo[kNetworkBusinessErrorDataKey];
-    if (customError.code == kAuthenticationFailHttpStatusCode && [errorModel isKindOfClass:[RequestErrorModel class]]) {
-        // 遇到401 自动刷新token
+    if (httpStatusCode == kAuthenticationFailHttpStatusCode && [errorModel isKindOfClass:[RequestErrorModel class]]) {
+#pragma warn 401 处理自动刷新逻辑
+        NSLog(@"此处要处理自动刷新token的逻辑");
         
         
-        
-        
-        return;
     }
     
     
@@ -184,8 +180,8 @@ static const char kBaseRequestErrorKey;
     if (request.success) {
         request.success(request,request.responseModel);
     }
-    if ([request.delegate respondsToSelector:@selector(baseRequestSuccess:)]) {
-        [request.delegate baseRequestSuccess:request];
+    if ([request.delegate respondsToSelector:@selector(baseRequestDidFinishSuccess:)]) {
+        [request.delegate baseRequestDidFinishSuccess:request];
     }
     [self clearRequestBlock:request];
 }
@@ -196,8 +192,8 @@ static const char kBaseRequestErrorKey;
     if (request.failture) {
         request.failture(request,request.error);
     }
-    if ([request.delegate respondsToSelector:@selector(baseRequestFailture:)]) {
-        [request.delegate baseRequestFailture:request];
+    if ([request.delegate respondsToSelector:@selector(baseRequestDidFinishFailture:)]) {
+        [request.delegate baseRequestDidFinishFailture:request];
     }
     [self clearRequestBlock:request];
 }

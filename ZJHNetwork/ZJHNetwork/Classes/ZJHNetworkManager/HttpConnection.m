@@ -33,7 +33,9 @@ static const char kBaseRequestConnectionKey;
 
 @property (nonatomic, strong, readwrite) NSURLSessionDataTask *task;
 
-@property (nonatomic, copy) CompletionBlock completion;
+@property (nonatomic, copy) ConnectionSuccessBlock success;
+
+@property (nonatomic, copy) ConnectionFailtureBlock failture;
 
 @end
 
@@ -56,9 +58,10 @@ static const char kBaseRequestConnectionKey;
     return headers;
 }
 
-- (void)connectWithRequest:(BaseRequest *)request completionBlock:(CompletionBlock)completion{
+- (void)connectWithRequest:(BaseRequest *)request success:(ConnectionSuccessBlock)success failture:(ConnectionFailtureBlock)failture{
     self.request = request;
-    self.completion = completion;
+    self.success = success;
+    self.failture = failture;
     
     NetworkConfig *defaultConfig = [NetworkConfig defaultConfig];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
@@ -137,13 +140,13 @@ static const char kBaseRequestConnectionKey;
 }
 
 - (void)requestHandleSuccess:(BaseRequest *)request responseObject:(id)object{
-    if (self.completion) {
-        self.completion(self, object, nil);
+    if (self.success) {
+        self.success(self, object);
     }
 }
 - (void)requestHandleFailture:(BaseRequest *)request error:(NSError *)error{
-    if (self.completion) {
-        self.completion(self, nil, error);
+    if (self.failture) {
+        self.failture(self, error);
     }
 }
 

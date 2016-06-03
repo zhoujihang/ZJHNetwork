@@ -11,7 +11,8 @@
 
 @class HttpConnection;
 
-typedef void(^CompletionBlock)(HttpConnection *connection, id responseJsonObject, NSError *error);
+typedef void(^ConnectionSuccessBlock)(HttpConnection *connection, id responseJsonObject);
+typedef void(^ConnectionFailtureBlock)(HttpConnection *connection, NSError *error);
 
 @interface BaseRequest (HttpConnection)
 
@@ -27,7 +28,7 @@ typedef void(^CompletionBlock)(HttpConnection *connection, id responseJsonObject
 
 + (instancetype)connection;
 
-- (void)connectWithRequest:(BaseRequest *)request completionBlock:(CompletionBlock)completion;
+- (void)connectWithRequest:(BaseRequest *)request success:(ConnectionSuccessBlock)success failture:(ConnectionFailtureBlock)failture;
 
 - (void)cancel;
 

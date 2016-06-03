@@ -33,8 +33,8 @@ typedef void(^UploadProgressBlock)(NSProgress *progress);
 
 @protocol BaseRequestDelegate <NSObject>
 
-- (void)baseRequestSuccess:(BaseRequest *)request;
-- (void)baseRequestFailture:(BaseRequest *)request;
+- (void)baseRequestDidFinishSuccess:(BaseRequest *)request;
+- (void)baseRequestDidFinishFailture:(BaseRequest *)request;
 
 @end
 
@@ -58,7 +58,7 @@ typedef void(^UploadProgressBlock)(NSProgress *progress);
 
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
-@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong, readonly) NSURL *url;
 
 // response
 @property (nonatomic, assign) BaseResponseSerializerType responseSerializerType;
@@ -83,6 +83,6 @@ typedef void(^UploadProgressBlock)(NSProgress *progress);
 // function
 - (void)start;
 - (void)startWithSuccess:(SuccessBlock)success failture:(FailtureBlock)failture;
-- (void)cancel;
 - (void)startWithSuccess:(SuccessBlock)success failture:(FailtureBlock)failture construction:(ConstructionBlock)construction uploadProgress:(UploadProgressBlock)uploadProgress;
+- (void)cancel;
 @end

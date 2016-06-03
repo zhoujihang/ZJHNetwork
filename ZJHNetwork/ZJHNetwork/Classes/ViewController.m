@@ -26,32 +26,34 @@
     [super viewDidLoad];
     
     
-    for (int i=0; i<20; i++) {
+    for (int i=0; i<10; i++) {
         [self testBlock];
-//        [self testDelegate];
+        [self testDelegate];
     }
 }
 - (void)testBlock{
+    // 失败回调，无访问权限
     [[[AddressListRequest alloc] init] startWithSuccess:^(BaseRequest *request, id responseObject) {
-        NSLog(@"zjh success obj:%@",responseObject);
+        NSLog(@"address success obj:%@",responseObject);
     } failture:^(BaseRequest *request, NSError *error) {
         RequestErrorModel *errorModel = error.userInfo[kNetworkBusinessErrorDataKey];
         if (errorModel) {
-            NSLog(@"zjh request error:%@",errorModel.message);
+            NSLog(@"address request error:%@",errorModel.message);
         }
     }];
 }
 - (void)testDelegate{
+    // 能得到成功回调
     CityListRequest *req = [[CityListRequest alloc] init];
     req.delegate = self;
     [req start];
 }
 
-- (void)baseRequestSuccess:(BaseRequest *)request{
-    NSLog(@"zjh success:%@",request.responseModel);
+- (void)baseRequestDidFinishSuccess:(BaseRequest *)request{
+    NSLog(@"citylist success:%@",request.responseModel);
 }
-- (void)baseRequestFailture:(BaseRequest *)request{
-    NSLog(@"zjh failture:%@",request.error);
+- (void)baseRequestDidFinishFailture:(BaseRequest *)request{
+    NSLog(@"citylist failture:%@",request.error);
 }
 
 @end
