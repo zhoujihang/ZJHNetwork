@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4732D1EF1CFD3C5D006950BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D1EE1CFD3C5D006950BC /* main.m */; };
+		4732D1F81CFD3C5D006950BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4732D1F61CFD3C5D006950BC /* Main.storyboard */; };
+		4732D1FA1CFD3C5D006950BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4732D1F91CFD3C5D006950BC /* Assets.xcassets */; };
+		4732D1FD1CFD3C5D006950BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4732D1FB1CFD3C5D006950BC /* LaunchScreen.storyboard */; };
+		4732D20A1CFD3CB0006950BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2061CFD3CB0006950BC /* AppDelegate.m */; };
+		4732D20B1CFD3CB0006950BC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2081CFD3CB0006950BC /* ViewController.m */; };
+		4732D20E1CFD3CE3006950BC /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D20D1CFD3CE3006950BC /* NetworkManager.m */; };
+		4732D2141CFD3D8B006950BC /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2131CFD3D8B006950BC /* BaseRequest.m */; };
+		4732D2341CFF0AE3006950BC /* NetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2331CFF0AE3006950BC /* NetworkConfig.m */; };
+		4732D2371CFF1208006950BC /* RequestHeadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2361CFF1208006950BC /* RequestHeadTool.m */; };
+		4732D23D1CFFDD9B006950BC /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D23C1CFFDD9B006950BC /* HttpConnection.m */; };
+		4732D2401D001056006950BC /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D23F1D001056006950BC /* BaseModel.m */; };
+		4732D2431D00107B006950BC /* RequestErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2421D00107B006950BC /* RequestErrorModel.m */; };
+		4732D2481D002272006950BC /* CityListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2471D002272006950BC /* CityListRequest.m */; };
+		4732D2511D00229C006950BC /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2501D00229C006950BC /* CityListModel.m */; };
+		4732D2551D0028E6006950BC /* AddressListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2541D0028E6006950BC /* AddressListRequest.m */; };
+		4732D2581D00291B006950BC /* AddressListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2571D00291B006950BC /* AddressListModel.m */; };
+		E59ED428D3CBAA75352CAAED /* libPods-ZJHNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5370C035CF085D6925FD571 /* libPods-ZJHNetwork.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4732D1EA1CFD3C5D006950BC /* ZJHNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJHNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4732D1EE1CFD3C5D006950BC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4732D1F71CFD3C5D006950BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4732D1F91CFD3C5D006950BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4732D1FC1CFD3C5D006950BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4732D1FE1CFD3C5D006950BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4732D2051CFD3CB0006950BC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4732D2061CFD3CB0006950BC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4732D2071CFD3CB0006950BC /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4732D2081CFD3CB0006950BC /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4732D20C1CFD3CE3006950BC /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		4732D20D1CFD3CE3006950BC /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		4732D2121CFD3D8B006950BC /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		4732D2131CFD3D8B006950BC /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		4732D2321CFF0AE3006950BC /* NetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConfig.h; sourceTree = "<group>"; };
+		4732D2331CFF0AE3006950BC /* NetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkConfig.m; sourceTree = "<group>"; };
+		4732D2351CFF1208006950BC /* RequestHeadTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHeadTool.h; sourceTree = "<group>"; };
+		4732D2361CFF1208006950BC /* RequestHeadTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHeadTool.m; sourceTree = "<group>"; };
+		4732D23B1CFFDD9B006950BC /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
+		4732D23C1CFFDD9B006950BC /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
+		4732D23E1D001056006950BC /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		4732D23F1D001056006950BC /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		4732D2411D00107B006950BC /* RequestErrorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestErrorModel.h; sourceTree = "<group>"; };
+		4732D2421D00107B006950BC /* RequestErrorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestErrorModel.m; sourceTree = "<group>"; };
+		4732D2461D002272006950BC /* CityListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListRequest.h; sourceTree = "<group>"; };
+		4732D2471D002272006950BC /* CityListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListRequest.m; sourceTree = "<group>"; };
+		4732D24F1D00229C006950BC /* CityListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListModel.h; sourceTree = "<group>"; };
+		4732D2501D00229C006950BC /* CityListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListModel.m; sourceTree = "<group>"; };
+		4732D2531D0028E6006950BC /* AddressListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressListRequest.h; sourceTree = "<group>"; };
+		4732D2541D0028E6006950BC /* AddressListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressListRequest.m; sourceTree = "<group>"; };
+		4732D2561D00291B006950BC /* AddressListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressListModel.h; sourceTree = "<group>"; };
+		4732D2571D00291B006950BC /* AddressListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressListModel.m; sourceTree = "<group>"; };
+		71B88F29543D44AAE2B79297 /* Pods-ZJHNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJHNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJHNetwork/Pods-ZJHNetwork.release.xcconfig"; sourceTree = "<group>"; };
+		CA9EE110A15332717FBF9A4D /* Pods-ZJHNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJHNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJHNetwork/Pods-ZJHNetwork.debug.xcconfig"; sourceTree = "<group>"; };
+		F5370C035CF085D6925FD571 /* libPods-ZJHNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZJHNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4732D1E71CFD3C5D006950BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59ED428D3CBAA75352CAAED /* libPods-ZJHNetwork.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3282E238F159F251F9C980E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5370C035CF085D6925FD571 /* libPods-ZJHNetwork.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4732D1E11CFD3C5D006950BC = {
+			isa = PBXGroup;
+			children = (
+				4732D1EC1CFD3C5D006950BC /* ZJHNetwork */,
+				4732D1EB1CFD3C5D006950BC /* Products */,
+				70B7A68BCB66BC284EF88EE9 /* Pods */,
+				3282E238F159F251F9C980E5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4732D1EB1CFD3C5D006950BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4732D1EA1CFD3C5D006950BC /* ZJHNetwork.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4732D1EC1CFD3C5D006950BC /* ZJHNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				4732D2041CFD3CB0006950BC /* Classes */,
+				4732D1ED1CFD3C5D006950BC /* Supporting Files */,
+			);
+			path = ZJHNetwork;
+			sourceTree = "<group>";
+		};
+		4732D1ED1CFD3C5D006950BC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4732D1F61CFD3C5D006950BC /* Main.storyboard */,
+				4732D1F91CFD3C5D006950BC /* Assets.xcassets */,
+				4732D1FB1CFD3C5D006950BC /* LaunchScreen.storyboard */,
+				4732D1FE1CFD3C5D006950BC /* Info.plist */,
+				4732D1EE1CFD3C5D006950BC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4732D2041CFD3CB0006950BC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4732D2051CFD3CB0006950BC /* AppDelegate.h */,
+				4732D2061CFD3CB0006950BC /* AppDelegate.m */,
+				4732D2071CFD3CB0006950BC /* ViewController.h */,
+				4732D2081CFD3CB0006950BC /* ViewController.m */,
+				4732D23E1D001056006950BC /* BaseModel.h */,
+				4732D23F1D001056006950BC /* BaseModel.m */,
+				4732D2441D002272006950BC /* Requests */,
+				4732D2091CFD3CB0006950BC /* ZJHNetworkManager */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4732D2091CFD3CB0006950BC /* ZJHNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				4732D2351CFF1208006950BC /* RequestHeadTool.h */,
+				4732D2361CFF1208006950BC /* RequestHeadTool.m */,
+				4732D23B1CFFDD9B006950BC /* HttpConnection.h */,
+				4732D23C1CFFDD9B006950BC /* HttpConnection.m */,
+				4732D20C1CFD3CE3006950BC /* NetworkManager.h */,
+				4732D20D1CFD3CE3006950BC /* NetworkManager.m */,
+				4732D2121CFD3D8B006950BC /* BaseRequest.h */,
+				4732D2131CFD3D8B006950BC /* BaseRequest.m */,
+				4732D2321CFF0AE3006950BC /* NetworkConfig.h */,
+				4732D2331CFF0AE3006950BC /* NetworkConfig.m */,
+				4732D2411D00107B006950BC /* RequestErrorModel.h */,
+				4732D2421D00107B006950BC /* RequestErrorModel.m */,
+			);
+			path = ZJHNetworkManager;
+			sourceTree = "<group>";
+		};
+		4732D2441D002272006950BC /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				4732D2521D0028B7006950BC /* AddressListRequest */,
+				4732D2451D002272006950BC /* CityListRequest */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		4732D2451D002272006950BC /* CityListRequest */ = {
+			isa = PBXGroup;
+			children = (
+				4732D2461D002272006950BC /* CityListRequest.h */,
+				4732D2471D002272006950BC /* CityListRequest.m */,
+				4732D24F1D00229C006950BC /* CityListModel.h */,
+				4732D2501D00229C006950BC /* CityListModel.m */,
+			);
+			path = CityListRequest;
+			sourceTree = "<group>";
+		};
+		4732D2521D0028B7006950BC /* AddressListRequest */ = {
+			isa = PBXGroup;
+			children = (
+				4732D2531D0028E6006950BC /* AddressListRequest.h */,
+				4732D2541D0028E6006950BC /* AddressListRequest.m */,
+				4732D2561D00291B006950BC /* AddressListModel.h */,
+				4732D2571D00291B006950BC /* AddressListModel.m */,
+			);
+			path = AddressListRequest;
+			sourceTree = "<group>";
+		};
+		70B7A68BCB66BC284EF88EE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA9EE110A15332717FBF9A4D /* Pods-ZJHNetwork.debug.xcconfig */,
+				71B88F29543D44AAE2B79297 /* Pods-ZJHNetwork.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4732D1E91CFD3C5D006950BC /* ZJHNetwork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4732D2011CFD3C5D006950BC /* Build configuration list for PBXNativeTarget "ZJHNetwork" */;
+			buildPhases = (
+				84152341DF5A1EEC87D80B11 /* Check Pods Manifest.lock */,
+				4732D1E61CFD3C5D006950BC /* Sources */,
+				4732D1E71CFD3C5D006950BC /* Frameworks */,
+				4732D1E81CFD3C5D006950BC /* Resources */,
+				FBD5EB9685649E6ED4F5AD15 /* Embed Pods Frameworks */,
+				2B47C75CE1820045AF1592E2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZJHNetwork;
+			productName = ZJHNetwork;
+			productReference = 4732D1EA1CFD3C5D006950BC /* ZJHNetwork.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4732D1E21CFD3C5D006950BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = zjh;
+				TargetAttributes = {
+					4732D1E91CFD3C5D006950BC = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 4732D1E51CFD3C5D006950BC /* Build configuration list for PBXProject "ZJHNetwork" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4732D1E11CFD3C5D006950BC;
+			productRefGroup = 4732D1EB1CFD3C5D006950BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4732D1E91CFD3C5D006950BC /* ZJHNetwork */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4732D1E81CFD3C5D006950BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4732D1FD1CFD3C5D006950BC /* LaunchScreen.storyboard in Resources */,
+				4732D1FA1CFD3C5D006950BC /* Assets.xcassets in Resources */,
+				4732D1F81CFD3C5D006950BC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B47C75CE1820045AF1592E2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZJHNetwork/Pods-ZJHNetwork-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84152341DF5A1EEC87D80B11 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FBD5EB9685649E6ED4F5AD15 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZJHNetwork/Pods-ZJHNetwork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4732D1E61CFD3C5D006950BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4732D23D1CFFDD9B006950BC /* HttpConnection.m in Sources */,
+				4732D2431D00107B006950BC /* RequestErrorModel.m in Sources */,
+				4732D2581D00291B006950BC /* AddressListModel.m in Sources */,
+				4732D20E1CFD3CE3006950BC /* NetworkManager.m in Sources */,
+				4732D20A1CFD3CB0006950BC /* AppDelegate.m in Sources */,
+				4732D2511D00229C006950BC /* CityListModel.m in Sources */,
+				4732D2371CFF1208006950BC /* RequestHeadTool.m in Sources */,
+				4732D1EF1CFD3C5D006950BC /* main.m in Sources */,
+				4732D2141CFD3D8B006950BC /* BaseRequest.m in Sources */,
+				4732D2481D002272006950BC /* CityListRequest.m in Sources */,
+				4732D2341CFF0AE3006950BC /* NetworkConfig.m in Sources */,
+				4732D2401D001056006950BC /* BaseModel.m in Sources */,
+				4732D2551D0028E6006950BC /* AddressListRequest.m in Sources */,
+				4732D20B1CFD3CB0006950BC /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4732D1F61CFD3C5D006950BC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4732D1F71CFD3C5D006950BC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4732D1FB1CFD3C5D006950BC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4732D1FC1CFD3C5D006950BC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4732D1FF1CFD3C5D006950BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4732D2001CFD3C5D006950BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4732D2021CFD3C5D006950BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA9EE110A15332717FBF9A4D /* Pods-ZJHNetwork.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZJHNetwork/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zjh.ZJHNetwork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4732D2031CFD3C5D006950BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71B88F29543D44AAE2B79297 /* Pods-ZJHNetwork.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZJHNetwork/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zjh.ZJHNetwork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4732D1E51CFD3C5D006950BC /* Build configuration list for PBXProject "ZJHNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4732D1FF1CFD3C5D006950BC /* Debug */,
+				4732D2001CFD3C5D006950BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4732D2011CFD3C5D006950BC /* Build configuration list for PBXNativeTarget "ZJHNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4732D2021CFD3C5D006950BC /* Debug */,
+				4732D2031CFD3C5D006950BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4732D1E21CFD3C5D006950BC /* Project object */;
+}
