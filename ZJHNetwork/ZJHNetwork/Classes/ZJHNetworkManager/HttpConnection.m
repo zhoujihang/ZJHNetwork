@@ -96,14 +96,13 @@ static const char kBaseRequestConnectionKey;
     
     NSString *urlString = [NSURL URLWithString:request.requestUrl relativeToURL:[NSURL URLWithString:request.requestBaseUrl]].absoluteString;
     NSDictionary *parameters = request.parameters;
-    __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *task = nil;
     switch (request.method) {
         case BaseRequestMethodGet:{
             task = [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [weakSelf requestHandleSuccess:request connection:self responseObject:responseObject];
+                [self requestHandleSuccess:request responseObject:responseObject];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [weakSelf requestHandleFailture:request connection:self error:error];
+                [self requestHandleFailture:request error:error];
             }];
         } break;
         case BaseRequestMethodPost:{
@@ -117,60 +116,32 @@ static const char kBaseRequestConnectionKey;
                         });
                     }
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    [weakSelf requestHandleSuccess:request connection:self responseObject:responseObject];
+                    [self requestHandleSuccess:request responseObject:responseObject];
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    [weakSelf requestHandleFailture:request connection:self error:error];
+                    [self requestHandleFailture:request error:error];
                 }];
             }else{
                 task = [manager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    [weakSelf requestHandleSuccess:request connection:self responseObject:responseObject];
+                    [self requestHandleSuccess:request responseObject:responseObject];
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    [weakSelf requestHandleFailture:request connection:self error:error];
+                    [self requestHandleFailture:request error:error];
                 }];
             }
         } break;
-        case BaseRequestMethodHead:{
-            task = [manager HEAD:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task) {
-                [weakSelf requestHandleSuccess:request connection:self responseObject:nil];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [weakSelf requestHandleFailture:request connection:self error:error];
-            }];
-        } break;
-        case BaseRequestMethodDelete:{
-            task = [manager DELETE:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [weakSelf requestHandleSuccess:request connection:self responseObject:responseObject];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [weakSelf requestHandleFailture:request connection:self error:error];
-            }];
-        } break;
-        case BaseRequestMethodPut:{
-            task = [manager PUT:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [weakSelf requestHandleSuccess:request connection:self responseObject:responseObject];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [weakSelf requestHandleFailture:request connection:self error:error];
-            }];
-        } break;
-        case BaseRequestMethodPatch:{
-            task = [manager PATCH:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [weakSelf requestHandleSuccess:request connection:self responseObject:responseObject];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [weakSelf requestHandleFailture:request connection:self error:error];
-            }];
-        } break;
         default:{
-            NSLog(@"error request method");
+            NSLog(@"unsupport request method");
         } break;
     }
     self.task = task;
     request.connection = self;
 }
 
-- (void)requestHandleSuccess:(BaseRequest *)request connection:(HttpConnection *)connection responseObject:(id)object{
+- (void)requestHandleSuccess:(BaseRequest *)request responseObject:(id)object{
     if (self.completion) {
         self.completion(self, object, nil);
     }
 }
-- (void)requestHandleFailture:(BaseRequest *)request connection:(HttpConnection *)connection error:(NSError *)error{
+- (void)requestHandleFailture:(BaseRequest *)request error:(NSError *)error{
     if (self.completion) {
         self.completion(self, nil, error);
     }

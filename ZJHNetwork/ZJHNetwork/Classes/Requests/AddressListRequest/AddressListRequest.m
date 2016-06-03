@@ -12,7 +12,10 @@
 @implementation AddressListRequest
 
 - (NSString *)requestUrl{
-    return @"https://api-cust-demo.ayibang.com/v1/house/suggest";
+    return @"v1/house/suggest";
+}
+- (NSString *)requestBaseUrl{
+    return @"https://api-cust-demo.ayibang.com";
 }
 - (Class)responseModelClass{
     return [AddressListModel class];

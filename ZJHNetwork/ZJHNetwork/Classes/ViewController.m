@@ -25,8 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testBlock];
-//    [self testDelegate];
+    
+    for (int i=0; i<20; i++) {
+        [self testBlock];
+//        [self testDelegate];
+    }
 }
 - (void)testBlock{
     [[[AddressListRequest alloc] init] startWithSuccess:^(BaseRequest *request, id responseObject) {
@@ -34,7 +37,7 @@
     } failture:^(BaseRequest *request, NSError *error) {
         RequestErrorModel *errorModel = error.userInfo[kNetworkBusinessErrorDataKey];
         if (errorModel) {
-            NSLog(@"request error:%@",errorModel.message);
+            NSLog(@"zjh request error:%@",errorModel.message);
         }
     }];
 }

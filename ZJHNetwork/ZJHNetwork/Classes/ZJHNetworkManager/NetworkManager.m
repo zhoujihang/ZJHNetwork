@@ -25,31 +25,6 @@ const NSInteger kNetworkBusinessErrorCode = 3;
 static const NSInteger kAuthenticationFailHttpStatusCode = 401;
 static const NSString *kNetworkErrorTipMessage = @"网络错误";
 
-NSString * requestHashString(BaseRequest *request){
-    NSString *hashString = [NSString stringWithFormat:@"%lu",request.hash];
-    return hashString;
-}
-NSString * requestHttpUrlString(BaseRequest *request){
-    NSString *path = request.requestUrl;
-    if ([[path lowercaseString] hasPrefix:@"http"]) {
-        return path;
-    }
-    NSString *host = request.requestBaseUrl;
-    if (![[host lowercaseString] hasPrefix:@"http"]) {return nil;}
-    
-    BOOL pathContainSlash = [path hasPrefix:@"/"];
-    BOOL hostContainSlash = [host hasSuffix:@"/"];
-    if (pathContainSlash && hostContainSlash) {
-        NSMutableString *ms = [path mutableCopy];
-        [ms deleteCharactersInRange:NSMakeRange(0, 1)];
-        path = [NSString stringWithFormat:@"%@%@",host,ms];
-    }else if(pathContainSlash || hostContainSlash){
-        path = [NSString stringWithFormat:@"%@%@",host,path];
-    }else{
-        path = [NSString stringWithFormat:@"%@/%@",host,path];
-    }
-    return path;
-}
 
 @implementation BaseRequest (NetworkManager)
 static const char kBaseRequestResponseModelKey;
@@ -69,10 +44,6 @@ static const char kBaseRequestErrorKey;
 @end
 
 
-@interface NetworkManager()
-
-
-@end
 
 @implementation NetworkManager
 
@@ -162,12 +133,9 @@ static const char kBaseRequestErrorKey;
     NSError *customError = [self createCustomErrorFromAFNError:error statusCode:httpStatusCode];
     request.error = customError;
     
-    if (customError.code == kAuthenticationFailHttpStatusCode) {
-        NSDictionary *userInfo = customError.userInfo;
-        RequestErrorModel *errorModel = userInfo[kNetworkBusinessErrorDataKey];
-        if (![errorModel isKindOfClass:[RequestErrorModel class]]) {
-            NSLog(@"%@",kNetworkErrorTipMessage);
-        }
+    NSDictionary *userInfo = customError.userInfo;
+    RequestErrorModel *errorModel = userInfo[kNetworkBusinessErrorDataKey];
+    if (customError.code == kAuthenticationFailHttpStatusCode && [errorModel isKindOfClass:[RequestErrorModel class]]) {
         // 遇到401 自动刷新token
         
         
@@ -239,7 +207,7 @@ static const char kBaseRequestErrorKey;
     NSDictionary *userInfo = error.userInfo;
     RequestErrorModel *errorModel = userInfo[kNetworkBusinessErrorDataKey];
     if (![errorModel isKindOfClass:[RequestErrorModel class]]) {
-        NSLog(@"%@",kNetworkErrorTipMessage);
+        NSLog(@"%@",error);
     }
     
     

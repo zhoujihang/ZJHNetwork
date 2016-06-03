@@ -33,6 +33,7 @@ FOUNDATION_EXTERN const NSInteger kNetworkCommunitaionErrorCode;
 
 @interface NetworkManager : NSObject
 
+// 本类为单例，只处理网络数据逻辑，不持有任何变量
 + (instancetype)sharedManager;
 
 - (void)addRequest:(BaseRequest *)request;

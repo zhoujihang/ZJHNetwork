@@ -13,11 +13,7 @@
 
 typedef NS_ENUM(NSUInteger, BaseRequestMethod) {
     BaseRequestMethodGet,
-    BaseRequestMethodPost,
-    BaseRequestMethodHead,
-    BaseRequestMethodDelete,
-    BaseRequestMethodPut,
-    BaseRequestMethodPatch,
+    BaseRequestMethodPost
 };
 
 typedef NS_ENUM(NSUInteger, BaseRequestSerializerType) {
