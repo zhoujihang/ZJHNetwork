@@ -6,20 +6,20 @@
 //  Copyright © 2016年 zjh. All rights reserved.
 //
 
-#import "HttpConnection.h"
+#import "ZJHHttpConnection.h"
 #import <AFNetworking/AFNetworking.h>
 #import <objc/runtime.h>
-#import "NetworkConfig.h"
+#import "ZJHNetworkConfig.h"
 
 
-@implementation BaseRequest (HttpConnection)
+@implementation ZJHBaseRequest (ZJHHttpConnection)
 static const char kBaseRequestConnectionKey;
-- (HttpConnection *)connection
+- (ZJHHttpConnection *)connection
 {
     return objc_getAssociatedObject(self, &kBaseRequestConnectionKey);
 }
 
-- (void)setConnection:(HttpConnection *)connection
+- (void)setConnection:(ZJHHttpConnection *)connection
 {
     objc_setAssociatedObject(self, &kBaseRequestConnectionKey, connection, OBJC_ASSOCIATION_ASSIGN);
 }
@@ -27,9 +27,9 @@ static const char kBaseRequestConnectionKey;
 @end
 
 
-@interface HttpConnection()
+@interface ZJHHttpConnection()
 
-@property (nonatomic, strong, readwrite) BaseRequest *request;
+@property (nonatomic, strong, readwrite) ZJHBaseRequest *request;
 
 @property (nonatomic, strong, readwrite) NSURLSessionDataTask *task;
 
@@ -39,17 +39,17 @@ static const char kBaseRequestConnectionKey;
 
 @end
 
-@implementation HttpConnection
+@implementation ZJHHttpConnection
 
 + (instancetype)connection{
     return [[self alloc] init];
 }
 
-- (NSDictionary *)headersWithRequest:(BaseRequest *)request{
-    NetworkConfig *config = [NetworkConfig defaultConfig];
+- (NSDictionary *)headersWithRequest:(ZJHBaseRequest *)request{
+    ZJHNetworkConfig *config = [ZJHNetworkConfig defaultConfig];
     
     NSMutableDictionary *headers = [@{} mutableCopy];
-    [config.fixedHeaders enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    [config.additionalHeaders enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [headers setObject:obj forKey:key];
     }];
     [request.headers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
@@ -58,18 +58,18 @@ static const char kBaseRequestConnectionKey;
     return headers;
 }
 
-- (void)connectWithRequest:(BaseRequest *)request success:(ConnectionSuccessBlock)success failture:(ConnectionFailtureBlock)failture{
+- (void)connectWithRequest:(ZJHBaseRequest *)request success:(ConnectionSuccessBlock)success failture:(ConnectionFailtureBlock)failture{
     self.request = request;
     self.success = success;
     self.failture = failture;
     
-    NetworkConfig *defaultConfig = [NetworkConfig defaultConfig];
+    ZJHNetworkConfig *defaultConfig = [ZJHNetworkConfig defaultConfig];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     
     // request
-    if (request.requestSerializerType == BaseRequestSerializerTypeHttp) {
+    if (request.requestSerializerType == ZJHBaseRequestSerializerTypeHttp) {
         manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    }else if(request.requestSerializerType == BaseRequestSerializerTypeJson){
+    }else if(request.requestSerializerType == ZJHBaseRequestSerializerTypeJson){
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
     }
     manager.requestSerializer.timeoutInterval = request.timeoutInterval ?: defaultConfig.defaultTimeoutInterval ?: 30;
@@ -83,9 +83,9 @@ static const char kBaseRequestConnectionKey;
     }];
     
     // response
-    if (request.responseSerializerType == BaseResponseSerializerTypeHttp) {
+    if (request.responseSerializerType == ZJHBaseResponseSerializerTypeHttp) {
         manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    }else if(request.responseSerializerType == BaseResponseSerializerTypeJson){
+    }else if(request.responseSerializerType == ZJHBaseResponseSerializerTypeJson){
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     NSIndexSet *acceptableStatusCodes = request.acceptableStatusCodes ?: defaultConfig.defaultAcceptableStatusCodes;
@@ -101,14 +101,14 @@ static const char kBaseRequestConnectionKey;
     NSDictionary *parameters = request.parameters;
     NSURLSessionDataTask *task = nil;
     switch (request.method) {
-        case BaseRequestMethodGet:{
+        case ZJHBaseRequestMethodGet:{
             task = [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [self requestHandleSuccess:request responseObject:responseObject];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 [self requestHandleFailture:request error:error];
             }];
         } break;
-        case BaseRequestMethodPost:{
+        case ZJHBaseRequestMethodPost:{
             if (request.construction) {
                 task = [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                     request.construction(formData);
@@ -139,12 +139,12 @@ static const char kBaseRequestConnectionKey;
     request.connection = self;
 }
 
-- (void)requestHandleSuccess:(BaseRequest *)request responseObject:(id)object{
+- (void)requestHandleSuccess:(ZJHBaseRequest *)request responseObject:(id)object{
     if (self.success) {
         self.success(self, object);
     }
 }
-- (void)requestHandleFailture:(BaseRequest *)request error:(NSError *)error{
+- (void)requestHandleFailture:(ZJHBaseRequest *)request error:(NSError *)error{
     if (self.failture) {
         self.failture(self, error);
     }

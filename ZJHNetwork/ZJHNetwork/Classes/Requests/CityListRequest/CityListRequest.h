@@ -6,8 +6,8 @@
 //  Copyright © 2016年 zjh. All rights reserved.
 //
 
-#import "BaseRequest.h"
+#import "ZJHBaseRequest.h"
 
-@interface CityListRequest : BaseRequest
+@interface CityListRequest : ZJHBaseRequest
 
 @end

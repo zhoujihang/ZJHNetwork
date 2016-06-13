@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RequestHeadTool.h"
-#import "NetworkConfig.h"
+#import "ZJHNetworkConfig.h"
 
 
 @interface AppDelegate ()
@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [NetworkConfig defaultConfig].fixedHeaders = [RequestHeadTool getRequestHead];
+    [ZJHNetworkConfig defaultConfig].additionalHeaders = [RequestHeadTool getRequestHead];
     
     return YES;
 }

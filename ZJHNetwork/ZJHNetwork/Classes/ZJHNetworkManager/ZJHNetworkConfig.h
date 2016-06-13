@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NetworkConfig : NSObject
+@interface ZJHNetworkConfig : NSObject
 
 + (instancetype)defaultConfig;
 
-@property (nonatomic, copy) NSDictionary *fixedHeaders;
+// 每个request都会加上的headers
+@property (nonatomic, copy) NSDictionary *additionalHeaders;
 
 @property (nonatomic, assign) NSTimeInterval defaultTimeoutInterval;
 

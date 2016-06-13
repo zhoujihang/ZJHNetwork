@@ -8,11 +8,9 @@
 
 #import "ViewController.h"
 #import "RequestHeadTool.h"
-#import "NetworkConfig.h"
 #import "CityListRequest.h"
 #import "AddressListRequest.h"
-#import "RequestErrorModel.h"
-#import "NetworkManager.h"
+#import "ZJHNetwork.h"
 
 @interface ViewController ()<BaseRequestDelegate>
 
@@ -33,9 +31,9 @@
 }
 - (void)testBlock{
     // 失败回调，无访问权限
-    [[[AddressListRequest alloc] init] startWithSuccess:^(BaseRequest *request, id responseObject) {
+    [[[AddressListRequest alloc] init] startWithSuccess:^(ZJHBaseRequest *request, id responseObject) {
         NSLog(@"address success obj:%@",responseObject);
-    } failture:^(BaseRequest *request, NSError *error) {
+    } failture:^(ZJHBaseRequest *request, NSError *error) {
         RequestErrorModel *errorModel = error.userInfo[kNetworkBusinessErrorDataKey];
         if (errorModel) {
             NSLog(@"address request error:%@",errorModel.message);
@@ -49,10 +47,10 @@
     [req start];
 }
 
-- (void)baseRequestDidFinishSuccess:(BaseRequest *)request{
+- (void)baseRequestDidFinishSuccess:(ZJHBaseRequest *)request{
     NSLog(@"citylist success:%@",request.responseModel);
 }
-- (void)baseRequestDidFinishFailture:(BaseRequest *)request{
+- (void)baseRequestDidFinishFailture:(ZJHBaseRequest *)request{
     NSLog(@"citylist failture:%@",request.error);
 }
 

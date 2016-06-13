@@ -6,45 +6,47 @@
 //  Copyright © 2016年 zjh. All rights reserved.
 //
 
+// 此类封装请求参数与返回结果，结果可转为model，也可直接使用字典
+
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 
-@class BaseRequest;
+@class ZJHBaseRequest;
 
-typedef NS_ENUM(NSUInteger, BaseRequestMethod) {
-    BaseRequestMethodGet,
-    BaseRequestMethodPost
+typedef NS_ENUM(NSUInteger, ZJHBaseRequestMethod) {
+    ZJHBaseRequestMethodGet,
+    ZJHBaseRequestMethodPost
 };
 
-typedef NS_ENUM(NSUInteger, BaseRequestSerializerType) {
-    BaseRequestSerializerTypeHttp,
-    BaseRequestSerializerTypeJson,
+typedef NS_ENUM(NSUInteger, ZJHBaseRequestSerializerType) {
+    ZJHBaseRequestSerializerTypeHttp,
+    ZJHBaseRequestSerializerTypeJson,
 };
 
-typedef NS_ENUM(NSUInteger, BaseResponseSerializerType) {
-    BaseResponseSerializerTypeHttp,
-    BaseResponseSerializerTypeJson,
+typedef NS_ENUM(NSUInteger, ZJHBaseResponseSerializerType) {
+    ZJHBaseResponseSerializerTypeHttp,
+    ZJHBaseResponseSerializerTypeJson,
 };
 
-typedef void(^SuccessBlock)(BaseRequest *request,id responseObject);
-typedef void(^FailtureBlock)(BaseRequest *request,NSError *error);
+typedef void(^SuccessBlock)(ZJHBaseRequest *request,id responseObject);
+typedef void(^FailtureBlock)(ZJHBaseRequest *request,NSError *error);
 typedef void(^ConstructionBlock)(id<AFMultipartFormData> formData);
 typedef void(^UploadProgressBlock)(NSProgress *progress);
 
 @protocol BaseRequestDelegate <NSObject>
 
-- (void)baseRequestDidFinishSuccess:(BaseRequest *)request;
-- (void)baseRequestDidFinishFailture:(BaseRequest *)request;
+- (void)baseRequestDidFinishSuccess:(ZJHBaseRequest *)request;
+- (void)baseRequestDidFinishFailture:(ZJHBaseRequest *)request;
 
 @end
 
-@interface BaseRequest : NSObject
+@interface ZJHBaseRequest : NSObject
 
 // status
 @property (nonatomic, assign, getter=isRunning) BOOL running;
 @property (nonatomic, assign, getter=isCancelling) BOOL cancelling;
 // request config
-@property (nonatomic, assign) BaseRequestMethod method;
+@property (nonatomic, assign) ZJHBaseRequestMethod method;
 
 @property (nonatomic, copy) NSString *requestBaseUrl;
 
@@ -54,14 +56,14 @@ typedef void(^UploadProgressBlock)(NSProgress *progress);
 
 @property (nonatomic, copy) NSDictionary *headers;
 
-@property (nonatomic, assign) BaseRequestSerializerType requestSerializerType;
+@property (nonatomic, assign) ZJHBaseRequestSerializerType requestSerializerType;
 
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
 @property (nonatomic, strong, readonly) NSURL *url;
 
 // response
-@property (nonatomic, assign) BaseResponseSerializerType responseSerializerType;
+@property (nonatomic, assign) ZJHBaseResponseSerializerType responseSerializerType;
 
 @property (nonatomic, copy) NSIndexSet *acceptableStatusCodes;
 

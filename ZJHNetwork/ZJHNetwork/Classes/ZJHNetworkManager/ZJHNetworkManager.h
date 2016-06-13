@@ -6,24 +6,29 @@
 //  Copyright © 2016年 zjh. All rights reserved.
 //
 
+// 此类为逻辑，统一处理网络请求的回调，将json对象直接转为model使用，避免使用字典
+
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 #import "RequestErrorModel.h"
-#import "BaseRequest.h"
+#import "ZJHBaseRequest.h"
 
+// error模型中 错误提示文字
 FOUNDATION_EXTERN NSString *const kNetworkErrorDomain;
 FOUNDATION_EXTERN NSString *const kNetworkParseResponseErrorMessage;
 
+// error模型中 存放后台错误数据的key
 FOUNDATION_EXTERN NSString *const kNetworkBusinessErrorDataKey;
+// error模型中 http 状态码的key
 FOUNDATION_EXTERN NSString *const kNetworkErrorHttpStatusCodeKey;
 
+// error模型中 error的code类型
 FOUNDATION_EXTERN const NSInteger kNetworkNilResponseErrorCode;
 FOUNDATION_EXTERN const NSInteger kNetworkParseResponseErrorCode;
 FOUNDATION_EXTERN const NSInteger kNetworkBusinessErrorCode;
-FOUNDATION_EXTERN const NSInteger kNetworkCommunitaionErrorCode;
 
 
-@interface BaseRequest (NetworkManager)
+@interface ZJHBaseRequest (ZJHNetworkManager)
 
 @property (nonatomic, strong, readonly) id responseModel;
 
@@ -31,12 +36,12 @@ FOUNDATION_EXTERN const NSInteger kNetworkCommunitaionErrorCode;
 
 @end
 
-@interface NetworkManager : NSObject
+@interface ZJHNetworkManager : NSObject
 
 // 本类为单例，只处理网络数据逻辑，不持有任何变量
 + (instancetype)sharedManager;
 
-- (void)addRequest:(BaseRequest *)request;
+- (void)addRequest:(ZJHBaseRequest *)request;
 
 
 

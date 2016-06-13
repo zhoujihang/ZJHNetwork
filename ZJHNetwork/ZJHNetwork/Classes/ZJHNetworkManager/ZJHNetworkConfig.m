@@ -6,12 +6,12 @@
 //  Copyright © 2016年 zjh. All rights reserved.
 //
 
-#import "NetworkConfig.h"
+#import "ZJHNetworkConfig.h"
 
-@implementation NetworkConfig
+@implementation ZJHNetworkConfig
 
 + (instancetype)defaultConfig{
-    static NetworkConfig *_instance;
+    static ZJHNetworkConfig *_instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [[self alloc] init];
@@ -20,7 +20,7 @@
     return _instance;
 }
 - (void)setDefault{
-    self.fixedHeaders = @{};
+    self.additionalHeaders = @{};
     self.defaultTimeoutInterval = 25;
     self.defaultAcceptableStatusCodes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(200, 100)];
     self.defaultAcceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/xml", @"text/plain", @"text/json", @"text/javascript", @"image/png", @"image/jpeg", @"application/json", nil];

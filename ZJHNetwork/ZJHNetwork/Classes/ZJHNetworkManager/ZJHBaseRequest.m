@@ -6,21 +6,21 @@
 //  Copyright © 2016年 zjh. All rights reserved.
 //
 
-#import "BaseRequest.h"
-#import "NetworkManager.h"
-#import "HttpConnection.h"
+#import "ZJHBaseRequest.h"
+#import "ZJHNetworkManager.h"
+#import "ZJHHttpConnection.h"
 
-@interface BaseRequest()
+@interface ZJHBaseRequest()
 
 
 
 @end
 
-@implementation BaseRequest
+@implementation ZJHBaseRequest
 
 // request config
-- (BaseRequestMethod)method{
-    return BaseRequestMethodGet;
+- (ZJHBaseRequestMethod)method{
+    return ZJHBaseRequestMethodGet;
 }
 - (NSString *)requestBaseUrl{
     return @"";
@@ -31,14 +31,14 @@
 - (NSDictionary *)headers{
     return @{};
 }
-- (BaseRequestSerializerType)requestSerializerType{
-    return BaseRequestSerializerTypeHttp;
+- (ZJHBaseRequestSerializerType)requestSerializerType{
+    return ZJHBaseRequestSerializerTypeHttp;
 }
 - (NSTimeInterval)timeoutInterval{
     return 25;
 }
-- (BaseResponseSerializerType)responseSerializerType{
-    return BaseResponseSerializerTypeJson;
+- (ZJHBaseResponseSerializerType)responseSerializerType{
+    return ZJHBaseResponseSerializerTypeJson;
 }
 - (NSURL *)url{
     NSString *urlString = self.requestUrl;
@@ -68,7 +68,7 @@
     if (self.running) {return;}
     
     self.running = YES;
-    [[NetworkManager sharedManager] addRequest:self];
+    [[ZJHNetworkManager sharedManager] addRequest:self];
 }
 - (void)startWithSuccess:(SuccessBlock)success failture:(FailtureBlock)failture{
     self.success = [success copy];
