@@ -1,5 +1,5 @@
 //
-//  HttpConnection.h
+//  ZJHHttpConnection.h
 //  ZJHNetwork
 //
 //  Created by 周际航 on 16/6/2.

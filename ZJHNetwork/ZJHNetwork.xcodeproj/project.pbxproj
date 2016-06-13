@@ -18,12 +18,12 @@
 		4732D2341CFF0AE3006950BC /* ZJHNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2331CFF0AE3006950BC /* ZJHNetworkConfig.m */; };
 		4732D23D1CFFDD9B006950BC /* ZJHHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D23C1CFFDD9B006950BC /* ZJHHttpConnection.m */; };
 		4732D2401D001056006950BC /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D23F1D001056006950BC /* BaseModel.m */; };
-		4732D2431D00107B006950BC /* RequestErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2421D00107B006950BC /* RequestErrorModel.m */; };
 		4732D2481D002272006950BC /* CityListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2471D002272006950BC /* CityListRequest.m */; };
 		4732D2511D00229C006950BC /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2501D00229C006950BC /* CityListModel.m */; };
 		4732D2551D0028E6006950BC /* AddressListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2541D0028E6006950BC /* AddressListRequest.m */; };
 		4732D2581D00291B006950BC /* AddressListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732D2571D00291B006950BC /* AddressListModel.m */; };
 		4746A1871D0E63E300FADE2D /* RequestHeadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4746A1861D0E63E300FADE2D /* RequestHeadTool.m */; };
+		4746A18B1D0EA60400FADE2D /* RequestErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4746A18A1D0EA60400FADE2D /* RequestErrorModel.m */; };
 		E59ED428D3CBAA75352CAAED /* libPods-ZJHNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5370C035CF085D6925FD571 /* libPods-ZJHNetwork.a */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +48,6 @@
 		4732D23C1CFFDD9B006950BC /* ZJHHttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJHHttpConnection.m; sourceTree = "<group>"; };
 		4732D23E1D001056006950BC /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		4732D23F1D001056006950BC /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
-		4732D2411D00107B006950BC /* RequestErrorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestErrorModel.h; sourceTree = "<group>"; };
-		4732D2421D00107B006950BC /* RequestErrorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestErrorModel.m; sourceTree = "<group>"; };
 		4732D2461D002272006950BC /* CityListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListRequest.h; sourceTree = "<group>"; };
 		4732D2471D002272006950BC /* CityListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListRequest.m; sourceTree = "<group>"; };
 		4732D24F1D00229C006950BC /* CityListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListModel.h; sourceTree = "<group>"; };
@@ -61,6 +59,8 @@
 		4746A1851D0E63E300FADE2D /* RequestHeadTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHeadTool.h; sourceTree = "<group>"; };
 		4746A1861D0E63E300FADE2D /* RequestHeadTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHeadTool.m; sourceTree = "<group>"; };
 		4746A1881D0E937800FADE2D /* ZJHNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJHNetwork.h; sourceTree = "<group>"; };
+		4746A1891D0EA60400FADE2D /* RequestErrorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestErrorModel.h; sourceTree = "<group>"; };
+		4746A18A1D0EA60400FADE2D /* RequestErrorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestErrorModel.m; sourceTree = "<group>"; };
 		71B88F29543D44AAE2B79297 /* Pods-ZJHNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJHNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJHNetwork/Pods-ZJHNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		CA9EE110A15332717FBF9A4D /* Pods-ZJHNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJHNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJHNetwork/Pods-ZJHNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		F5370C035CF085D6925FD571 /* libPods-ZJHNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZJHNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +143,7 @@
 		4732D2091CFD3CB0006950BC /* ZJHNetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				4746A1881D0E937800FADE2D /* ZJHNetwork.h */,
 				4732D23B1CFFDD9B006950BC /* ZJHHttpConnection.h */,
 				4732D23C1CFFDD9B006950BC /* ZJHHttpConnection.m */,
 				4732D20C1CFD3CE3006950BC /* ZJHNetworkManager.h */,
@@ -151,9 +152,6 @@
 				4732D2131CFD3D8B006950BC /* ZJHBaseRequest.m */,
 				4732D2321CFF0AE3006950BC /* ZJHNetworkConfig.h */,
 				4732D2331CFF0AE3006950BC /* ZJHNetworkConfig.m */,
-				4732D2411D00107B006950BC /* RequestErrorModel.h */,
-				4732D2421D00107B006950BC /* RequestErrorModel.m */,
-				4746A1881D0E937800FADE2D /* ZJHNetwork.h */,
 				4746A1841D0E63E300FADE2D /* other */,
 			);
 			path = ZJHNetworkManager;
@@ -193,6 +191,8 @@
 		4746A1841D0E63E300FADE2D /* other */ = {
 			isa = PBXGroup;
 			children = (
+				4746A1891D0EA60400FADE2D /* RequestErrorModel.h */,
+				4746A18A1D0EA60400FADE2D /* RequestErrorModel.m */,
 				4746A1851D0E63E300FADE2D /* RequestHeadTool.h */,
 				4746A1861D0E63E300FADE2D /* RequestHeadTool.m */,
 			);
@@ -330,7 +330,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4732D23D1CFFDD9B006950BC /* ZJHHttpConnection.m in Sources */,
-				4732D2431D00107B006950BC /* RequestErrorModel.m in Sources */,
 				4732D2581D00291B006950BC /* AddressListModel.m in Sources */,
 				4732D20E1CFD3CE3006950BC /* ZJHNetworkManager.m in Sources */,
 				4732D20A1CFD3CB0006950BC /* AppDelegate.m in Sources */,
@@ -340,6 +339,7 @@
 				4732D2481D002272006950BC /* CityListRequest.m in Sources */,
 				4732D2341CFF0AE3006950BC /* ZJHNetworkConfig.m in Sources */,
 				4732D2401D001056006950BC /* BaseModel.m in Sources */,
+				4746A18B1D0EA60400FADE2D /* RequestErrorModel.m in Sources */,
 				4746A1871D0E63E300FADE2D /* RequestHeadTool.m in Sources */,
 				4732D2551D0028E6006950BC /* AddressListRequest.m in Sources */,
 				4732D20B1CFD3CB0006950BC /* ViewController.m in Sources */,

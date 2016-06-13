@@ -13,6 +13,5 @@
 #import "ZJHBaseRequest.h"
 #import "ZJHNetworkConfig.h"
 #import "ZJHHttpConnection.h"
-#import "RequestErrorModel.h"
 
 #endif /* ZJHNetwork_h */
