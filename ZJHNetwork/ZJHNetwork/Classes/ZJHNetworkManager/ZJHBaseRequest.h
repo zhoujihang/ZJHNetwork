@@ -29,14 +29,14 @@ typedef NS_ENUM(NSUInteger, ZJHBaseResponseSerializerType) {
 };
 
 typedef void(^SuccessBlock)(ZJHBaseRequest *request,id responseObject);
-typedef void(^FailtureBlock)(ZJHBaseRequest *request,NSError *error);
+typedef void(^FailureBlock)(ZJHBaseRequest *request,NSError *error);
 typedef void(^ConstructionBlock)(id<AFMultipartFormData> formData);
 typedef void(^UploadProgressBlock)(NSProgress *progress);
 
 @protocol BaseRequestDelegate <NSObject>
 
 - (void)baseRequestDidFinishSuccess:(ZJHBaseRequest *)request;
-- (void)baseRequestDidFinishFailture:(ZJHBaseRequest *)request;
+- (void)baseRequestDidFinishFailure:(ZJHBaseRequest *)request;
 
 @end
 
@@ -45,6 +45,9 @@ typedef void(^UploadProgressBlock)(NSProgress *progress);
 // status
 @property (nonatomic, assign, getter=isRunning) BOOL running;
 @property (nonatomic, assign, getter=isCancelling) BOOL cancelling;
+
+
+
 // request config
 @property (nonatomic, assign) ZJHBaseRequestMethod method;
 
@@ -77,14 +80,14 @@ typedef void(^UploadProgressBlock)(NSProgress *progress);
 
 // callback
 @property (nonatomic, copy) SuccessBlock success;
-@property (nonatomic, copy) FailtureBlock failture;
+@property (nonatomic, copy) FailureBlock failure;
 @property (nonatomic, copy) ConstructionBlock construction;
 @property (nonatomic, copy) UploadProgressBlock uploadProgress;
 @property (nonatomic, weak) id<BaseRequestDelegate> delegate;
 
 // function
 - (void)start;
-- (void)startWithSuccess:(SuccessBlock)success failture:(FailtureBlock)failture;
-- (void)startWithSuccess:(SuccessBlock)success failture:(FailtureBlock)failture construction:(ConstructionBlock)construction uploadProgress:(UploadProgressBlock)uploadProgress;
+- (void)startWithSuccess:(SuccessBlock)success failure:(FailureBlock)failure;
+- (void)startWithSuccess:(SuccessBlock)success failure:(FailureBlock)failure construction:(ConstructionBlock)construction uploadProgress:(UploadProgressBlock)uploadProgress;
 - (void)cancel;
 @end

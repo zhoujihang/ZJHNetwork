@@ -22,8 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+
     for (int i=0; i<10; i++) {
         [self testBlock];
         [self testDelegate];
@@ -33,7 +32,7 @@
     // 失败回调，无访问权限
     [[[AddressListRequest alloc] init] startWithSuccess:^(ZJHBaseRequest *request, id responseObject) {
         NSLog(@"address success obj:%@",responseObject);
-    } failture:^(ZJHBaseRequest *request, NSError *error) {
+    } failure:^(ZJHBaseRequest *request, NSError *error) {
         RequestErrorModel *errorModel = error.userInfo[kNetworkBusinessErrorDataKey];
         if (errorModel) {
             NSLog(@"address request error:%@",errorModel.message);
@@ -50,8 +49,10 @@
 - (void)baseRequestDidFinishSuccess:(ZJHBaseRequest *)request{
     NSLog(@"citylist success:%@",request.responseModel);
 }
-- (void)baseRequestDidFinishFailture:(ZJHBaseRequest *)request{
-    NSLog(@"citylist failture:%@",request.error);
+- (void)baseRequestDidFinishFailure:(ZJHBaseRequest *)request{
+    NSLog(@"citylist failure:%@",request.error);
 }
+
+
 
 @end

@@ -70,17 +70,17 @@
     self.running = YES;
     [[ZJHNetworkManager sharedManager] addRequest:self];
 }
-- (void)startWithSuccess:(SuccessBlock)success failture:(FailtureBlock)failture{
+- (void)startWithSuccess:(SuccessBlock)success failure:(FailureBlock)failure{
     self.success = [success copy];
-    self.failture = [failture copy];
+    self.failure = [failure copy];
     
     [self start];
 }
-- (void)startWithSuccess:(SuccessBlock)success failture:(FailtureBlock)failture construction:(ConstructionBlock)construction uploadProgress:(UploadProgressBlock)uploadProgress{
+- (void)startWithSuccess:(SuccessBlock)success failure:(FailureBlock)failure construction:(ConstructionBlock)construction uploadProgress:(UploadProgressBlock)uploadProgress{
     self.construction = construction;
     self.uploadProgress = uploadProgress;
     
-    [self startWithSuccess:success failture:failture];
+    [self startWithSuccess:success failure:failure];
 }
 
 - (void)cancel{

@@ -59,7 +59,7 @@ static const char kBaseRequestErrorKey;
     __weak typeof(self) weakSelf = self;
     [[ZJHHttpConnection connection] connectWithRequest:request success:^(ZJHHttpConnection *connection, id responseJsonObject) {
         [weakSelf processConnection:connection withResponseJsonObject:responseJsonObject];
-    } failture:^(ZJHHttpConnection *connection, NSError *error) {
+    } failure:^(ZJHHttpConnection *connection, NSError *error) {
         [weakSelf processConnection:connection withError:error];
     }];
 }
@@ -70,7 +70,7 @@ static const char kBaseRequestErrorKey;
     NSError *error = [self processRequest:request withResponseJsonObject:responseJsonObjet];
     if (error) {
         request.error = error;
-        [self callbackRequestFailture:request];
+        [self callbackRequestFailure:request];
         return;
     }
     
@@ -141,7 +141,7 @@ static const char kBaseRequestErrorKey;
     }
     
     
-    [self callbackRequestFailture:request];
+    [self callbackRequestFailure:request];
 }
 - (NSError *)createCustomErrorFromAFNError:(NSError *)afnError statusCode:(NSInteger )statusCodes{
     NSError *error = nil;
@@ -186,18 +186,18 @@ static const char kBaseRequestErrorKey;
     [self clearRequestBlock:request];
 }
 
-- (void)callbackRequestFailture:(ZJHBaseRequest *)request{
-    [self handleCommonRequestFailture:request];
+- (void)callbackRequestFailure:(ZJHBaseRequest *)request{
+    [self handleCommonRequestFailure:request];
     
-    if (request.failture) {
-        request.failture(request,request.error);
+    if (request.failure) {
+        request.failure(request,request.error);
     }
-    if ([request.delegate respondsToSelector:@selector(baseRequestDidFinishFailture:)]) {
-        [request.delegate baseRequestDidFinishFailture:request];
+    if ([request.delegate respondsToSelector:@selector(baseRequestDidFinishFailure:)]) {
+        [request.delegate baseRequestDidFinishFailure:request];
     }
     [self clearRequestBlock:request];
 }
-- (void)handleCommonRequestFailture:(ZJHBaseRequest *)request{
+- (void)handleCommonRequestFailure:(ZJHBaseRequest *)request{
     // 提示错误
     NSError *error = request.error;
     NSDictionary *userInfo = error.userInfo;
@@ -211,7 +211,7 @@ static const char kBaseRequestErrorKey;
 
 - (void)clearRequestBlock:(ZJHBaseRequest *)request{
     request.success = nil;
-    request.failture = nil;
+    request.failure = nil;
     request.construction = nil;
     request.uploadProgress = nil;
 }

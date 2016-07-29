@@ -14,7 +14,7 @@
 @class ZJHHttpConnection;
 
 typedef void(^ConnectionSuccessBlock)(ZJHHttpConnection *connection, id responseJsonObject);
-typedef void(^ConnectionFailtureBlock)(ZJHHttpConnection *connection, NSError *error);
+typedef void(^ConnectionFailureBlock)(ZJHHttpConnection *connection, NSError *error);
 
 @interface ZJHBaseRequest (ZJHHttpConnection)
 
@@ -30,7 +30,7 @@ typedef void(^ConnectionFailtureBlock)(ZJHHttpConnection *connection, NSError *e
 
 + (instancetype)connection;
 
-- (void)connectWithRequest:(ZJHBaseRequest *)request success:(ConnectionSuccessBlock)success failture:(ConnectionFailtureBlock)failture;
+- (void)connectWithRequest:(ZJHBaseRequest *)request success:(ConnectionSuccessBlock)success failure:(ConnectionFailureBlock)failure;
 
 - (void)cancel;
 

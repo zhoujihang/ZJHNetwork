@@ -35,7 +35,7 @@ static const char kBaseRequestConnectionKey;
 
 @property (nonatomic, copy) ConnectionSuccessBlock success;
 
-@property (nonatomic, copy) ConnectionFailtureBlock failture;
+@property (nonatomic, copy) ConnectionFailureBlock failure;
 
 @end
 
@@ -58,10 +58,10 @@ static const char kBaseRequestConnectionKey;
     return headers;
 }
 
-- (void)connectWithRequest:(ZJHBaseRequest *)request success:(ConnectionSuccessBlock)success failture:(ConnectionFailtureBlock)failture{
+- (void)connectWithRequest:(ZJHBaseRequest *)request success:(ConnectionSuccessBlock)success failure:(ConnectionFailureBlock)failure{
     self.request = request;
     self.success = success;
-    self.failture = failture;
+    self.failure = failure;
     
     ZJHNetworkConfig *defaultConfig = [ZJHNetworkConfig defaultConfig];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
@@ -105,7 +105,7 @@ static const char kBaseRequestConnectionKey;
             task = [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [self requestHandleSuccess:request responseObject:responseObject];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [self requestHandleFailture:request error:error];
+                [self requestHandleFailure:request error:error];
             }];
         } break;
         case ZJHBaseRequestMethodPost:{
@@ -121,13 +121,13 @@ static const char kBaseRequestConnectionKey;
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     [self requestHandleSuccess:request responseObject:responseObject];
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    [self requestHandleFailture:request error:error];
+                    [self requestHandleFailure:request error:error];
                 }];
             }else{
                 task = [manager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     [self requestHandleSuccess:request responseObject:responseObject];
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    [self requestHandleFailture:request error:error];
+                    [self requestHandleFailure:request error:error];
                 }];
             }
         } break;
@@ -144,9 +144,9 @@ static const char kBaseRequestConnectionKey;
         self.success(self, object);
     }
 }
-- (void)requestHandleFailture:(ZJHBaseRequest *)request error:(NSError *)error{
-    if (self.failture) {
-        self.failture(self, error);
+- (void)requestHandleFailure:(ZJHBaseRequest *)request error:(NSError *)error{
+    if (self.failure) {
+        self.failure(self, error);
     }
 }
 
